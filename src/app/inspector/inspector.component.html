@@ -1,0 +1,6 @@
+<form *ngIf="selectedNode" (ngSubmit)="onCommitForm()">
+  Name: <input name="name" [(ngModel)]="data.name" />
+  Boss: <input name="parent" [(ngModel)]="data.parent" />
+  Duty: <input name="parent" [(ngModel)]="data.duty" />
+  <button type="submit">Commit</button>
+</form>
