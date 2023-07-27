@@ -83,14 +83,14 @@ export class DiagramComponent {
               margin: new go.Margin(6, 8, 6, 10)
             },
             new go.Binding('source', 'key', function(key) {
-              if (key < 0 || key > 16) return ''; // There are only 16 images on the server
+              if (key < 0 || key > 17) return ''; // There are only 16 images on the server
               return 'assets/HS' + key + '.png';
             })
           ),
           // define the panel where the text will appear
           $(go.Panel, 'Table',
             {
-              maxSize: new go.Size(150, 999),
+              maxSize: new go.Size(550, 999),
               margin: new go.Margin(6, 10, 0, 3),
               defaultAlignment: go.Spot.Left
             },
@@ -118,15 +118,15 @@ export class DiagramComponent {
               new go.Binding('text', 'key', function(v) { return 'ID: ' + v; })),
             $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },
               { name: 'boss', row: 3, column: 0 }, // we include a name so we can access this TextBlock when deleting Nodes/Links
-              new go.Binding('text', 'parent', function(v) { return 'Boss: ' + v; })),
+              new go.Binding('text', 'shift', function(v) { return 'Shift: ' + v; })),
             $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },  // the comments
-              {
-                row: 3, column: 0, columnSpan: 5,
-                font: 'italic 9pt sans-serif',
-                wrap: go.TextBlock.WrapFit,
-                editable: true,  // by default newlines are allowed
-                minSize: new go.Size(10, 14)
-              },
+              // {
+              //   row: 3, column: 0, columnSpan: 5,
+              //   font: 'italic 9pt sans-serif',
+              //   wrap: go.TextBlock.WrapFit,
+              //   editable: true,  // by default newlines are allowed
+              //   minSize: new go.Size(10, 14)
+              // },
               { name: 'Duty', row: 4, column: 0 }, // we include a name so we can access this TextBlock when deleting Nodes/Links
               new go.Binding('text', 'duty', function(v) { return 'Duty: ' + v; })),
             $(go.TextBlock, { font: '9pt  Segoe UI,sans-serif', stroke: 'white' },  // the comments
